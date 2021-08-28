@@ -37,17 +37,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         this.bt.setOnLongClickListener{
+            val id = 13
             val pessoas = this.dao.get()
-            val pessoa = pessoas.get(0)
-            pessoa.nome = "outro nome"
-            Log.i("APP_BANCO", pessoas.toString())
-
-            this.dao.update(pessoa)
-            Log.i("APP_BANCO", this@MainActivity.dao.get().toString())
-
-            this.dao.delete(pessoa)
-            Log.i("APP_BANCO", this@MainActivity.dao.get().toString())
-            return@setOnLongClickListener true
+            val pessoa = this.dao.get(id)
+            Log.i("APP_BANCO", pessoas.toString());
+            Log.i("APP_BANCO id "+ id  + " -> ",  pessoa.toString());
+            return@setOnLongClickListener true;
         }
     }
 }
